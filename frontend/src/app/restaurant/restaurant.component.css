@@ -1,0 +1,21 @@
+.restaurent-header{
+    height: 100px;
+    width: 100%;
+    background-color: rgb(101, 105, 96);
+    color: white;
+    
+    margin: auto;
+}
+.res-name {
+   margin-left: 5%;
+}
+.res-id {
+    float: right;
+    margin-right: 10%;
+}
+.food-items {
+    top: 30%;
+}
+.veg{
+    
+}

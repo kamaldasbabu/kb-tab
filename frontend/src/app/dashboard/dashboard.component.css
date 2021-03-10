@@ -1,0 +1,38 @@
+
+.cards {
+ width: 70%;
+ height: 70%;
+ 
+}
+.resturant-card {
+  background-color: cyan;
+  margin: 1%;
+}
+.orders-card {
+  background-color: darkgoldenrod;
+  margin: 1%;
+}
+.add-resturent-card {
+  background-color: rgb(230, 63, 13);
+  margin: 1%;
+}
+.customer-card {
+  background-color: deepskyblue;
+  margin: 1%;
+}
+
+.center {
+  margin: auto;
+  margin-top: 5%;
+  padding: 10px;
+}
+
+.dashbord-content {
+  justify-content:space-evenly ;
+  display: flex;
+}
+
+mat-card {
+  height: 400px;
+  width: 300px;
+}

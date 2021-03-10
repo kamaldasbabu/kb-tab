@@ -1,0 +1,35 @@
+<header class="header-container" >
+    <div class="logo">
+        <img src="../../../assets/photos/logo.jpeg" alt="take a break">
+    </div>
+    <div class="admin"> <button mat-raised-button color="accent"><h3>ADMIN</h3></button></div>
+    <div class="header-right">
+        <div class="notification">
+            <a>
+                 <mat-icon mat-button [matMenuTriggerFor]="menu" 
+                  matBadge="4" matBadgeOverlap="false" >circle_notifications</mat-icon>
+            </a>
+            <mat-menu #menu="matMenu"  xPosition="before">
+            <button mat-menu-item>notification 1</button>
+            <button mat-menu-item>notification 2</button>
+            <button mat-menu-item>notification 3</button>
+            <button mat-menu-item>notification 4</button>
+            <button mat-menu-item>notification 5</button>
+            <button mat-menu-item>notification 6</button>
+            </mat-menu>
+
+        </div>
+        <div class="avtar-name">
+            <span *ngIf="isAuth">Hi ! {{name}}</span> 
+        </div>
+        <div class="avtar">
+            
+            <span matButton [routerLink]="['/login']" routerLinkActive="active">
+                <mat-icon *ngIf="!isAuth">person</mat-icon>
+                <span (click)="logout()" *ngIf="isAuth"><mat-icon>face</mat-icon> Logout</span>
+            </span>
+            
+         </div>
+    </div>
+
+</header>

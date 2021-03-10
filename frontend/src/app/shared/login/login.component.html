@@ -1,0 +1,33 @@
+
+<mat-card>
+    <mat-card-content>
+        <form [formGroup]="loginForm" (submit)="login()">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>E-Mail ID</mat-label>
+              <input  matInput placeholder="Ex. eg@example.com" required formControlName="email">
+            </mat-form-field>
+          
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input  matInput placeholder="Password" required [type]="hide? 'password': 'text'" formControlName="password">
+                <mat-icon (click)="hide=!hide" matSuffix> {{ hide? 'visibility_off' : 'visibility' }}</mat-icon>
+              </mat-form-field>
+              <button type="submit" mat-raised-button color="primary">Sign IN</button>
+          </form>
+    </mat-card-content>
+</mat-card>
+
+<!-- [attr.aira-label]="hide password"
+                    [attr.aira-pressed]="hide" -->
+
+                     <!-- <mat-form-field class="full-width" appearance="outline"></mat-form-field>
+                <mat-label>E-Mail</mat-label>
+                <input formControlName="email" matInput required>
+                <mat-error *ngIf="loginForm.get('email').errors?.required"> Require Mail</mat-error> -->
+<!-- <mat-label>Password</mat-label>
+                    <input  formControlName="password" matInput
+                        [type]="hide? 'password': 'text'" required> -->
+                    <!-- <button mat-icon-button matSuffix (click)="hide=!hide" 
+                    >
+                        {{ hide? 'visibility_off': 'visibility'}}
+                    </button>  -->

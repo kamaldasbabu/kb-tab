@@ -1,0 +1,44 @@
+
+.header-container {
+    background-color: #f8f8f867;
+    flex-direction: row;
+    display: flex;
+    justify-content: center space-between;
+    margin: 2% 2%;
+    align-content: center;
+    padding: 2px;
+
+}
+.logo {
+    float: left;
+    width:40%;
+}
+img{
+    height: 90px;
+    width: 200px;
+}
+.header-right {
+    justify-content: space-evenly;
+    width: 20%;
+    display: flex;
+    margin:auto;
+    
+
+
+  }
+.admin {
+    font-size: medium;
+    width: auto;
+    margin: auto;
+    text-align: center center;
+}
+  .notification {
+
+  }
+.avtar {
+    
+}
+
+mat-menu {
+    width: 200px;
+}

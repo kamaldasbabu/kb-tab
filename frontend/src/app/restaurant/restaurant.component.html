@@ -1,0 +1,31 @@
+<mat-card *ngFor="let resDetails of restaurantDetails">
+    <mat-card-title class="restaurent-header">
+        <div class="res-name"><h1>{{resDetails.name}}</h1></div>
+        <div class="res-id"><h4>ID: {{resDetails.id}}</h4></div>
+    </mat-card-title>
+
+    
+    <mat-card-content>
+        <mat-card-header class="food-items">
+            <h3>Food Items :</h3>
+            <div class="veg"><ol>
+                <h3>Veg</h3>
+                
+                <li>{{resDetails.foods.item1}}</li>
+                <li>{{resDetails.foods.item2}}</li>
+                <li>{{resDetails.foods.item3}}</li>
+            </ol></div>
+            <div class="nonveg"><ol>
+                <h3>Non-Veg</h3>
+                <li>{{resDetails.foods.item1}}</li>
+                <li>{{resDetails.foods.item2}}</li>
+                <li>{{resDetails.foods.item3}}</li>
+            </ol></div>
+        </mat-card-header>
+        <p>Address : {{resDetails.address.street | uppercase}}, 
+            {{resDetails.address.dist | uppercase}}, 
+            PIN: {{resDetails.address.pin}}</p>
+            
+        <p>Contact: {{resDetails.contact}}</p>
+    </mat-card-content>
+</mat-card>
