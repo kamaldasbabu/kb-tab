@@ -1,0 +1,32 @@
+<p>addrestaurant works!</p>
+
+<mat-card>
+
+  
+    <form (submit)="newRestaurant()" [formGroup]="addResForm">
+        
+
+        <mat-form-field appearance="outline">
+            <mat-label>Restaurant Name</mat-label>
+            <input  matInput required placeholder="Babu" type="text" formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Restaurant ID</mat-label>
+            <input  matInput required placeholder="For example: 1" type="number" formControlName="resid">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Set Username</mat-label>
+            <input matInput required placeholder="r1" type="text" formControlName="username">
+        
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Set Password</mat-label>
+            <input matInput required placeholder="password" type="text" formControlName="password">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="desc"></textarea>
+          </mat-form-field>
+        <button mat-raised-button type="submit"> Add Restaurant </button>
+    </form>
+</mat-card>

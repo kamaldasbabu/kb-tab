@@ -16,7 +16,7 @@ export class DeliveryComponent implements OnInit {
   constructor(private orderService: OrdersService) { }
   deliveredOrders : any;
   ngOnInit(): void {
-    this.orderService.getDeliveredOrders().subscribe(data => {
+    this.orderService.getPickupOrders().subscribe(data => {
       this.deliveredOrders = data;
       console.log(data);
     })

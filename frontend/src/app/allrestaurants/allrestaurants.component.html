@@ -3,20 +3,21 @@
 <mat-accordion multi="true" *ngIf="restaurant.length > 0">
     <mat-expansion-panel *ngFor="let rst of restaurant">
         <mat-expansion-panel-header>
-            <h2>estaurant Name</h2>{{rst.resId}} || {{rst.id}}
+            <h4>Restaurant Name:</h4>  <span style="margin-left: 5%;">{{rst.name}}</span> 
+            <h4 style="margin-left: 10%;">Restaurant Id: </h4><span style="margin-left: 5%;">{{rst._id}} </span> 
+            <h4 style="margin-left: 10%;">TAB - Resturant ID </h4> <span style="margin-left: 5%;"> {{rst.resid}}</span>
         </mat-expansion-panel-header>
-        <p>{{rst.resName}}</p>
         <mat-action-row>
-            <button mat-button>EDIT</button>
-            <button mat-button color="warn">DELETE</button>
+            <button mat-button (click)="onEdit(rst._id)">EDIT</button>
+            <button mat-button color="warn" (click)="onDelete(rst._id)">DELETE</button>
         </mat-action-row>
     </mat-expansion-panel>
 </mat-accordion>
 
-<table >
+<!-- <table >
     <thead>
         <tr>
-            <th>Restaurant Name</th>
+            <th>Restaurant Name </th>
             <th>Restaurant Id</th>
             <th></th>
             <th>Delivery Address</th>
@@ -33,4 +34,4 @@
         <td>edit</td>
         <td>delete</td>
     </tr>
-</table>
+</table> -->

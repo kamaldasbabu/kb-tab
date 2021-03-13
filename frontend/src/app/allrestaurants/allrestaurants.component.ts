@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './allrestaurants.component.html',
   styleUrls: ['./allrestaurants.component.css']
 })
-export class AllrestaurantsComponent implements OnInit, OnDestroy {
+export class AllrestaurantsComponent implements OnInit {
 
   restaurant: Restaurant [] = []
   constructor(private restaurantService: RestaurantService) { }
@@ -26,6 +26,15 @@ export class AllrestaurantsComponent implements OnInit, OnDestroy {
 
   private resSub: Subscription;
 
+  onDelete(resId: string) {
+    this.restaurantService.deleteRest(resId);
+    console.log("deleted post");
+  }
+
+  onEdit(resid: string) {
+    
+  }
+
   ngOnInit(): void {
     this.restaurantService.getRestaurants();
     this.resSub = this.restaurantService.getResUpdateListener()
@@ -34,7 +43,5 @@ export class AllrestaurantsComponent implements OnInit, OnDestroy {
         console.log(res);
       })
   }
-  ngOnDestroy() {
-    this.resSub.unsubscribe();
-  }
+  
 }

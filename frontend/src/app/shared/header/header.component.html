@@ -4,6 +4,9 @@
     </div>
     <div class="admin"> <button mat-raised-button color="accent"><h3>ADMIN</h3></button></div>
     <div class="header-right">
+        <div class="addres" *ngIf="isAuth">
+            <button mat-raised-button [routerLink]="['/addres']" routerLinkActive="active" > Add Restaurant</button>
+        </div>
         <div class="notification">
             <a>
                  <mat-icon mat-button [matMenuTriggerFor]="menu" 

@@ -1,23 +1,23 @@
 const mongoose = require('mongoose');
 var restaurantSchema = new mongoose.Schema({
-    resId: {
-        type: Number,
-        required: true
-    },
-    resName: {
+    name: {
         type: String,
         required: true
     },
-    resAddress :{
+    resid: {
+        type: Number,
+        required: true
+    },
+    username: {
         type: String,
         required: true
     },
-    resPin: {
-        type: Number, required: true
+    password: {
+        type: String,
+        required: true
     },
-    resRating :{
-        type: Number,
-        
+    desc: {
+        type: String
     }
 
 });

@@ -9,7 +9,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class PickupComponent implements OnInit, OnDestroy {
 
-  private orderSub: Subscription;
   count: number = 0;
   constructor(private orderService: OrdersService) { }
   pickupOrders : any;
@@ -20,7 +19,7 @@ export class PickupComponent implements OnInit, OnDestroy {
     })
   }
   ngOnDestroy(){
-    this.orderSub.unsubscribe();
+    
   }
 
 }

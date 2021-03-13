@@ -23,8 +23,6 @@ img{
     display: flex;
     margin:auto;
     
-
-
   }
 .admin {
     font-size: medium;
@@ -41,4 +39,8 @@ img{
 
 mat-menu {
     width: 200px;
+}
+
+.addres {
+    margin-right: 20%;
 }

@@ -1,3 +1,4 @@
+import { AddrestaurantComponent } from './addrestaurant/addrestaurant.component';
 import { DeliveryComponent } from './order/delivery/delivery.component';
 import { CancelComponent } from './order/cancel/cancel.component';
 import { AllordersComponent } from './order/allorders/allorders.component';
@@ -19,20 +20,22 @@ import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   
-      { path:'', redirectTo:'login', pathMatch: 'full'},
+      { path:'', redirectTo:'allrestaurant', pathMatch: 'full'},
       { path:'home', component: AppComponent },
       { path:'login', component: LoginComponent},
       
-      { path: 'signup', component: SignupComponent,  canActivate:[AdminGuard]},
-      { path:'adminhome', component: AdminhomeComponent,  canActivate:[AdminGuard] },
+      { path: 'signup', component: SignupComponent },
+      { path:'adminhome', component: AdminhomeComponent},
       { path: 'order', component: OrderComponent, canActivate:[AdminGuard] ,
         children: [
           { path: 'allorders', component: AllordersComponent },
           { path: 'deliveredorder', component: DeliveryComponent },
           { path: 'cancelorder', component: CancelComponent },
           { path: 'pickuporder', component:PickupComponent }
-        ]},
-      { path: 'restaurant', component: RestaurantComponent,  canActivate:[AdminGuard] },
+        ]
+      },
+      {path: 'addres', component: AddrestaurantComponent},
+      { path: 'restaurant', component: RestaurantComponent},
       { path: 'dashboard', component: DashboardComponent},
       { path: 'allrestaurant', component: AllrestaurantsComponent},
       { path: 'customers', component: CustomersComponent, canActivate:[AdminGuard]},
@@ -51,4 +54,7 @@ export class AppRoutingModule { }
 export const AllComponent =
  [ LoginComponent, 
   PagenotfoundComponent, 
-  PickupComponent ]
+  PickupComponent,
+  AddrestaurantComponent
+
+]

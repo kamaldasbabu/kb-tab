@@ -8,9 +8,17 @@ const orderRouter = require('./router/orderRouter');
 const resRouter = require('./router/resRouter')
 const port = process.env.PORT || 3000;
 const url = 'mongodb+srv://user1:user1@cluster0.hmsuf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-
 const app = express();
-mongoose.connect(url, {useNewUrlParser: true}, { useUnifiedTopology: true });
+mongoose.connect(url, 
+    {   
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true
+    }).then(()=> {
+        console.log("db connecion success")
+    }).catch((err)=> {
+        console.log("err"+err)
+});
 
 var passport = require('passport');
 var session = require('express-session');
