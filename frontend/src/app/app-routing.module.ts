@@ -20,13 +20,12 @@ import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   
-      { path:'', redirectTo:'allrestaurant', pathMatch: 'full'},
-      { path:'home', component: AppComponent },
-      { path:'login', component: LoginComponent},
-      
+      { path: '', redirectTo:'login', pathMatch: 'full'},
+      { path: 'home', component: AppComponent },
+      { path: 'login', component: LoginComponent },
       { path: 'signup', component: SignupComponent },
-      { path:'adminhome', component: AdminhomeComponent},
-      { path: 'order', component: OrderComponent, canActivate:[AdminGuard] ,
+      { path: 'adminhome', component: AdminhomeComponent },
+      { path: 'order', component: OrderComponent, canActivate:[AdminGuard],
         children: [
           { path: 'allorders', component: AllordersComponent },
           { path: 'deliveredorder', component: DeliveryComponent },
@@ -34,16 +33,14 @@ const routes: Routes = [
           { path: 'pickuporder', component:PickupComponent }
         ]
       },
-      {path: 'addres', component: AddrestaurantComponent},
-      { path: 'restaurant', component: RestaurantComponent},
+      { path: 'addres', component: AddrestaurantComponent },
+      { path: 'restaurant', component: RestaurantComponent },
+      { path: 'res/:resid', component: RestaurantComponent },
       { path: 'dashboard', component: DashboardComponent},
-      { path: 'allrestaurant', component: AllrestaurantsComponent},
-      { path: 'customers', component: CustomersComponent, canActivate:[AdminGuard]},
-      { path: 'fooditems', component: FooditemsComponent},
-      
-      
-      
-      {path:'**', component: PagenotfoundComponent}
+      { path: 'allrestaurant', component: AllrestaurantsComponent, canActivate:[AdminGuard] },
+      { path: 'customers', component: CustomersComponent, canActivate:[AdminGuard] },
+      { path: 'fooditems', component: FooditemsComponent },
+      { path: '**', component: PagenotfoundComponent }
 ];
 
 @NgModule({

@@ -1,6 +1,8 @@
 import { RestaurantService } from './../services/restaurant.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-addrestaurant',
@@ -9,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddrestaurantComponent implements OnInit {
 
-  constructor(private restaurantService: RestaurantService) { }
+  constructor(private restaurantService: RestaurantService, private router: Router) { }
 
   addResForm:FormGroup = new FormGroup({
     name: new FormControl(null, [Validators.required]),
@@ -28,8 +30,17 @@ export class AddrestaurantComponent implements OnInit {
           console.log('data send successfully')
         });
       console.log(JSON.stringify(this.addResForm.value));
+      this.router.navigate(['/allrestaurant']);
     }
   }
+  // editResForm:FormGroup = new FormGroup({
+  //   name: new FormControl(null, [Validators.required]),
+  //   password: new FormControl(null, [Validators.required]),
+  //   desc: new FormControl(null)
+  // })
+  // editRestaurant(){
+
+  // }
 
   ngOnInit(): void {
   }

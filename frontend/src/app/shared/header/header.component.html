@@ -2,7 +2,7 @@
     <div class="logo">
         <img src="../../../assets/photos/logo.jpeg" alt="take a break">
     </div>
-    <div class="admin"> <button mat-raised-button color="accent"><h3>ADMIN</h3></button></div>
+    <div class="admin"> <button mat-raised-button color="accent">ADMIN</button></div>
     <div class="header-right">
         <div class="addres" *ngIf="isAuth">
             <button mat-raised-button [routerLink]="['/addres']" routerLinkActive="active" > Add Restaurant</button>
@@ -23,14 +23,16 @@
 
         </div>
         <div class="avtar-name">
-            <span *ngIf="isAuth">Hi ! {{name}}</span> 
+            <span *ngIf="val">Hi ! {{name}}</span> 
         </div>
         <div class="avtar">
             
-            <span matButton [routerLink]="['/login']" routerLinkActive="active">
-                <mat-icon *ngIf="!isAuth">person</mat-icon>
-                <span (click)="logout()" *ngIf="isAuth"><mat-icon>face</mat-icon> Logout</span>
+            <span mat- [routerLink]="['/login']" routerLinkActive="active">
+                <mat-icon *ngIf="!val">person</mat-icon>  
             </span>
+            <span (click)="logout()" *ngIf="val"><mat-icon matTooltip="Logout"
+                matTooltipClass="example-tooltip-red"
+                aria-label="Button that shows a red tooltip">settings_power</mat-icon></span>
             
          </div>
     </div>

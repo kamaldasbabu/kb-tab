@@ -3,6 +3,8 @@ mat-card {
     margin: 2em auto;
     text-align: center;
     max-height: 600px;
+    margin-top: 10%;
+    padding: 3%;
 }
 .example-form {
     min-width: inherit;

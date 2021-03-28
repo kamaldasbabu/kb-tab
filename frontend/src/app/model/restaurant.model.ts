@@ -1,7 +1,8 @@
 export interface Restaurant {
-    id: any,
-    resId: number,
-    resName: string,
-    resAddress: string,
-    resRating: number
+    _id: string,
+    desc: string,
+    name: string,
+    password: string,
+    resid: number,
+    username: string
 }

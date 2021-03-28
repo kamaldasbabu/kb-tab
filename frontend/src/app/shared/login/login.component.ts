@@ -12,8 +12,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private userService: UserService, 
+  constructor(
+     private userService: UserService, 
      private router: Router) { }
+
     hide: boolean = true;
     
     loginForm : FormGroup= new FormGroup({
@@ -28,14 +30,20 @@ export class LoginComponent implements OnInit {
       return ;
     } else {
       this.userService.login(JSON.stringify(this.loginForm.value));
+      this.userService.setValue(true);
       this.router.navigate(['/dashboard']);
       console.log(JSON.stringify(this.loginForm.value));
     }
   }
 
-
   ngOnInit(): void {
-    
+    if(this.userService.isLogin()) {
+      this.router.navigate(['/dashboard']);
+      this.userService.setValue(true);
+    } else {
+      this.router.navigate(['/login']);
+      this.userService.setValue(false);
+    }
   }
 
 }

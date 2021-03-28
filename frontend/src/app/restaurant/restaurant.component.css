@@ -1,29 +1,7 @@
-/* .restaurent-header{
-    height: 100px;
-    width: 100%;
-    background-color: rgb(101, 105, 96);
-    color: white;
-    
-    margin: auto;
-}
-.res-name {
-   margin-left: 5%;
-}
-.res-id {
-    float: right;
-    margin-right: 10%;
-}
-.food-items {
-    top: 30%;
-}
-.veg{
-    
-} */
-
 
 .container {
-    background-color: cadetblue;
-    height: 100%;
+    background-color: rgb(225, 233, 197);
+    height: 93%;
     width: 100%;
 }
 .resheader{
@@ -64,41 +42,49 @@
 .resaddress {
     position: absolute;
     margin: auto;
-    color: #fff;
-    margin-top: 15%;
+    margin-top: 18%;
     margin-left: 22%;
     font-size: 20px;
 }
 
 .offerfoods {
-    color: #fff;
-    background-color: lemonchiffon;
-    width: 100%;
-    
-
+    width: 80%;
+    margin-top: 25%;
+    position: absolute;
+    display: flex;
+    flex-wrap:wrap;
 
 }
 .offerfood-text {
     font-size: 20px;
-    background-color: chartreuse;
-    height: 80px;
-    width: 30px;
+    margin-left: 20%;
+    text-align: center;
+    align-content: center;
     
 }
 .vegitem{
-    font-size: 20px;
+    font-size: 18px;
     padding: 7px;
-    
-    background-color: blue;
+    margin-left: 5%;
 }
 .non-vegitem {
-    font-size: 20px;
+    font-size: 18px;
     padding: 7px;
-    margin-left: ;
-
-    background-color: rgb(209, 15, 15);
+    margin-left: 2%;
 }
 
 li{
     padding: 10px;
+    font-size: smaller;
+}
+
+span {
+    text-align: center;
+    margin-top: 20%;
+}
+
+table {
+    position: absolute;
+    margin-top: 50%;
+    border: 2px solid black;
 }

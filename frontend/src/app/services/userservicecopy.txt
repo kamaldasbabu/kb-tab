@@ -1,35 +1,25 @@
-
-import { Subject, Observable, BehaviorSubject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-
-
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  
-  private routerInfo: BehaviorSubject<boolean>
 
-  constructor(private http: HttpClient) { 
-    this.routerInfo = new BehaviorSubject<boolean>(false);
-  }
-  
-  noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
-
-
+  constructor(private http: HttpClient) { }
+  url= 'http://localhost:3000/reg/add';
   register(body: any) {
-    return this.http.post(environment.apiBaseUrl+'/add', body, {
+    return this.http.post(this.url, body, {
       observe:'body',
       headers: new HttpHeaders().append('Content-Type', 'application/json')
     })
   }
-  private myName;
+  urlLog='http://localhost:3000/reg/login';
+
   login(body: any){
-    this.http.post<{token: string, name: string}>(environment.apiBaseUrl+'/login', body, {
+    this.http.post<{token: string, name: string}>(this.urlLog, body, {
       observe:'body',
       withCredentials: true,
       headers: new HttpHeaders().append('Content-Type', 'application/json')
@@ -37,13 +27,9 @@ export class UserService {
     localStorage.setItem('token', data.token);
     localStorage.setItem('name', data.name);
     this.uname.next(data.name);
-    this.myName = data.name;
-    console.log(this.myName);
-
     this.isAuth.next(true);
   })
   }
-
 
   getUserPayload(){
     var token = localStorage.getItem('token');
@@ -58,45 +44,29 @@ export class UserService {
   isLogin(){
     var userPayloadVerify = this.getUserPayload();
     if(userPayloadVerify){
-      this.isAuth.next(true);
-      this.uname.next(this.myName);
       return true;
     }
     return false;
   }
 
   logout(){
-    this.deleteToken();
+    localStorage.removeItem('token');
+    localStorage.removeItem('name');
     this.uname.next('');
     this.isAuth.next(false);
   }
 
-  deleteToken(){
-    localStorage.removeItem('token');
-    localStorage.removeItem('name');
-  }
-
+  urlUsername='http://localhost:3000/reg/username'
   private uname = new Subject();
-
-  getUserName():Observable<any> {
+  getUserName():Observable<any>{
     return this.uname.asObservable();
+
   }
-
-
   private isAuth = new Subject<boolean>();
 
-  isAuthValid(){
-
+  isAuthValid() {
     return this.isAuth.asObservable();
   }
 
 
-
-  
-   getValue(): Observable<boolean> {
-    return this.routerInfo.asObservable();
-   }
-   setValue(newValue): void {
-      this.routerInfo.next(newValue);
-   }
 }

@@ -4,6 +4,9 @@ const resRouter = express.Router();
 const Res = require('../model/restaurant');
 const nodemailer = require('nodemailer');
 const mailGun = require('nodemailer-mailgun-transport');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 
 resRouter.get('/', async (req, res, next)=> {
@@ -15,7 +18,7 @@ resRouter.get('/', async (req, res, next)=> {
     }
 });
 
-resRouter.post('/newres', async (req, res, next)=> {
+resRouter.post('/newres', (req, res, next)=> {
     const newRestaurant = new Res({
         name: req.body.name,
         resid: req.body.resid,
@@ -23,7 +26,7 @@ resRouter.post('/newres', async (req, res, next)=> {
         password: req.body.password,
         desc: req.body.desc
     });
-        await newRestaurant.save((err, doc)=> {
+        newRestaurant.save((err, doc)=> {
         if(err){
             res.status(501).json({msg: 'Restuarant not added', error: err});
         } else {
@@ -41,28 +44,27 @@ resRouter.post('/newres', async (req, res, next)=> {
         <h3>Thanks from KB</h3>
     `
 
-    
         const auth = {
             auth: {
-            api_key: '10ff5494a4e8ab4a67af20c9fd34e5c4-29561299-c3843b01',
-            domain: 'sandbox4269621a196542b0a407745512a13ed8.mailgun.org'
+            api_key: process.env.API_KEY,
+            domain: process.env.DOMAIN
             }
         };
 
         const transporter = nodemailer.createTransport(mailGun(auth));
     
     const mailOptions = {
-        from: 'demouserkb@gamil.com',
+        from: 'kamalruidas33@gmail.com',
         to: 'kbcdefgh33@gmail.com',
-        subject: 'testmail',
+        subject: 'ADD RESTAURENT',
         html: output
     }
     
     transporter.sendMail(mailOptions, function(err, data){
         if(err){
-        console.log("Error "+err)
+        console.log("Error From Mail Server: "+err)
         } else{
-        console.log("mail sent"+data)
+        console.log("mail sent from Mail Server: "+data)
         }
     });
 
@@ -76,14 +78,13 @@ resRouter.get('/:resid', async(req, res, next)=> {
 });
 
 
-resRouter.delete('/:id', (req, res, next)=> {
- 
-    Res.findByIdAndDelete(req.params.id)
-    .then(()=> {
-       res.status(200).send("DELETED"); 
-       console.log("Deleted id "+req.params.id)
-    }).catch((err)=> {
-        res.status(500).send(err);
+resRouter.delete('/:resid', (req, res, next)=> {
+    resid = (req.params.resid)
+    Res.deleteOne({resid: resid}, (err)=>{
+        if(err){
+            console.log("Error on Delete: "+err);
+        }
+        console.log("Delete sccessfully resid is: "+resid);
     });
 });
 

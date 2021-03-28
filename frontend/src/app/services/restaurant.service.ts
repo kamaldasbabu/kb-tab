@@ -1,21 +1,22 @@
 import { Restaurant } from './../model/restaurant.model';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestaurantService {
   private restaurantt:any;
-  // private restaurantt: Restaurant[] = [];
+  private restauranttt: Restaurant[];
   constructor(private http: HttpClient) { }
 
   private updatedRestaurant = new Subject<Restaurant[]>();
 
   url = "http://localhost:3000/restaurant";
-
+  readonly URLID ='http://localhost:3000/restaurant';
   
   getRestaurants(){
     this.http.get<{restaurants:any}>(this.url)
@@ -24,6 +25,15 @@ export class RestaurantService {
         console.log(transformRes);
         this.updatedRestaurant.next([...this.restaurantt]);
       })
+  }
+
+  getAllRes(){
+     return this.http.get<Restaurant[]>(this.URLID);
+  }
+
+  getOneRestaurant(resid: number){
+    return this.http.get<Restaurant[]>(this.URLID+`/${resid}`);
+
   }
 
   addresurl = 'http://localhost:3000/restaurant/newres'
@@ -38,7 +48,7 @@ export class RestaurantService {
   deleteRest(resId: string){
     this.http.delete('http://localhost:3000/restaurant/'+resId)
       .subscribe(()=> {
-        console.log("deleted post");
+        console.log("deleted Resturant");
       })
   }
   
@@ -46,6 +56,9 @@ export class RestaurantService {
     return this.updatedRestaurant.asObservable();
   }
 }
+
+
+
 
 // getRestaurants(){
   //   this.http.get<{restaurants: any}>(this.url)

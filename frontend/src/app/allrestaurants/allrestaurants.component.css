@@ -1,0 +1,13 @@
+table {
+    width: 100%;
+    text-align: center;
+    
+}
+tr {
+    border: none;
+    background-color: rgb(245, 234, 234);
+}
+
+tr :hover {
+    background-color: darkgrey;
+}

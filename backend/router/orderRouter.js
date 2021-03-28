@@ -3,7 +3,6 @@ const bcrypt= require('bcrypt');
 const orderRouter = express.Router();
 const Order = require('../model/orders');
 
-
 orderRouter.get('/allorders', async(req, res, next)=> {
     try {
        const allorders = await Order.find();

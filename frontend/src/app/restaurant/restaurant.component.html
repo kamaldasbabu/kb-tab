@@ -1,64 +1,33 @@
-<!-- <mat-card *ngFor="let resDetails of restaurantDetails">
-    <mat-card-title class="restaurent-header">
-        <div class="res-name"><h1>{{resDetails.name}}</h1></div>
-        <div class="res-id"><h4>ID: {{resDetails.id}}</h4></div>
-    </mat-card-title>
 
-    
-    <mat-card-content>
-        <mat-card-header class="food-items">
-            <h3>Food Items :</h3>
-            <div class="veg"><ol>
-                <h3>Veg</h3>
-                
-                <li>{{resDetails.foods.item1}}</li>
-                <li>{{resDetails.foods.item2}}</li>
-                <li>{{resDetails.foods.item3}}</li>
-            </ol></div>
-            <div class="nonveg"><ol>
-                <h3>Non-Veg</h3>
-                <li>{{resDetails.foods.item1}}</li>
-                <li>{{resDetails.foods.item2}}</li>
-                <li>{{resDetails.foods.item3}}</li>
-            </ol></div>
-        </mat-card-header>
-        <p>Address : {{resDetails.address.street | uppercase}}, 
-            {{resDetails.address.dist | uppercase}}, 
-            PIN: {{resDetails.address.pin}}</p>
-            
-        <p>Contact: {{resDetails.contact}}</p>
-    </mat-card-content>
-</mat-card> -->
-
-<div class="container">
+<div class="container" >
 
     <div class="resheader">
-        <h2 class="resid">Restaurant Id</h2>
+        <h2 class="resid">Restaurant Id :  <span color="primary">{{id}}</span> <span><button style="margin-left: 20%;" mat-raised-button (click)="goBack()">Back</button></span></h2>
+        
     </div>
     
     <div class="res">
-        <h3 class="resname">PETUK</h3>
+        <h3 class="resname">{{name}}</h3><span></span>
     </div>
     <div class="resaddress">
         <p>Restaurant Address: <span>Bardhaman</span> </p>
     </div>
 
     <div class="offerfoods">
-        <div class="offerfood-text"> Offer Foods :  </div>
+        <div class="offerfood-text"> <span>Offer Foods :  </span> </div>
         <div class="vegitem"> 
-            <header>Veg</header>
-             <ul>
+            <header>Veg Items</header>
+             <ol>
                  <li>Paneer</li>
                  <li>Alu porota</li>
-             </ul> 
+             </ol> 
         </div>
         <div class="non-vegitem">
-            <header>Non Veg</header>
-             <ul>
+            <header>Non Veg Items</header>
+             <ol>
                  <li>Fish Fry</li>
                  <li>Chicken</li>
-             </ul> 
+             </ol> 
         </div>
     </div>
-
 </div>

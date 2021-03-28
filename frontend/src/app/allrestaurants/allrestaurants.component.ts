@@ -2,6 +2,8 @@ import { Restaurant } from './../model/restaurant.model';
 import { RestaurantService } from './../services/restaurant.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -12,36 +14,37 @@ import { Subscription } from 'rxjs';
 export class AllrestaurantsComponent implements OnInit {
 
   restaurant: Restaurant [] = []
-  constructor(private restaurantService: RestaurantService) { }
-  
-    // {id: 'r1', name: 'KFC', desc: 'Fresh foood'},
-    // {id: 'r2', name: 'FOOD PANDA', desc: 'Just Eat it'},
-    // {id: 'r3', name: 'ADDA', desc: 'Feeling hunger'},
-    // {id: 'r4', name: 'PETUK', desc: 'best Biryani'},
-    // {id: 'r5', name: 'CHIF & BEST', desc: 'Chinis Special'},
-    // {id: 'r6', name: 'CANTEEN', desc: 'food fooddy'},
-    // {id: 'r7', name: '2ND WIFE', desc: 'Fresh foood'},
-    
-  
+  constructor(private restaurantService: RestaurantService, private router: Router) { }
+
 
   private resSub: Subscription;
 
   onDelete(resId: string) {
     this.restaurantService.deleteRest(resId);
-    console.log("deleted post");
+    this.allRestaurantList();
+    console.log("deleted Resturant");
   }
 
   onEdit(resid: string) {
     
   }
 
-  ngOnInit(): void {
+  allRestaurantList(){
     this.restaurantService.getRestaurants();
     this.resSub = this.restaurantService.getResUpdateListener()
       .subscribe((res: Restaurant[])=> {
         this.restaurant = res;
         console.log(res);
       })
+  }
+  onResDetails(resid: number){
+    this.restaurantService.getOneRestaurant(resid);
+      this.router.navigate(['/restaurant']);
+
+  }
+
+  ngOnInit(): void {
+    this.allRestaurantList();
   }
   
 }

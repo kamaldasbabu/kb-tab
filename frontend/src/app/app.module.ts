@@ -1,3 +1,4 @@
+
 import { MaterialModule } from './material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -21,12 +22,9 @@ import { UserService } from './services/user.service';
 import { DeliveryComponent } from './order/delivery/delivery.component';
 import { CancelComponent } from './order/cancel/cancel.component';
 import { AllordersComponent } from './order/allorders/allorders.component';
-
 import { CustomersComponent } from './customers/customers.component';
 import { FooditemsComponent } from './fooditems/fooditems.component';
 import { RestaurantService } from './services/restaurant.service';
-
-
 
 
 @NgModule({
@@ -61,7 +59,7 @@ import { RestaurantService } from './services/restaurant.service';
     
     
   ],
-  providers: [UserService, RestaurantService],
+  providers: [UserService, RestaurantService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,16 +6,18 @@ const bodyParser = require('body-parser');
 const appRouter = require('./router/appRouter');
 const orderRouter = require('./router/orderRouter');
 const resRouter = require('./router/resRouter')
+const dotenv = require('dotenv');
 const port = process.env.PORT || 3000;
-const url = 'mongodb+srv://user1:user1@cluster0.hmsuf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const app = express();
-mongoose.connect(url, 
+dotenv.config();
+
+mongoose.connect(process.env.MONGO_DB_URL, 
     {   
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true
     }).then(()=> {
-        console.log("db connecion success")
+        console.log("db connetion success")
     }).catch((err)=> {
         console.log("err"+err)
 });
@@ -45,10 +47,8 @@ app.use(cors({
     origin:['http://localhost:4200', 'http://127.0.0.1:4200'],
     credentials: true
 }))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}))
 
 app.use('/reg', appRouter);
 app.use('/order', orderRouter);

@@ -7,3 +7,6 @@ mat-card {
     text-align: center;
     max-height: 600px;
 }
+.card-container {
+    display: flex;
+}

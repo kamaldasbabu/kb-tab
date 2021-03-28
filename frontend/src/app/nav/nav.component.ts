@@ -20,4 +20,7 @@ export class NavComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
+  todayNumber: number = Date.now();
+  todayDate : Date = new Date();
+
 }
