@@ -36,7 +36,7 @@ const routes: Routes = [
       { path: 'addres', component: AddrestaurantComponent },
       { path: 'restaurant', component: RestaurantComponent },
       { path: 'res/:resid', component: RestaurantComponent },
-      { path: 'dashboard', component: DashboardComponent},
+      { path: 'dashboard', component: DashboardComponent, canActivate:[AdminGuard]},
       { path: 'allrestaurant', component: AllrestaurantsComponent, canActivate:[AdminGuard] },
       { path: 'customers', component: CustomersComponent, canActivate:[AdminGuard] },
       { path: 'fooditems', component: FooditemsComponent },

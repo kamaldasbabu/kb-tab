@@ -5,6 +5,7 @@
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>E-Mail ID</mat-label>
               <input  matInput placeholder="Ex. eg@example.com" required formControlName="email">
+                
             </mat-form-field>
           
             <mat-form-field class="example-full-width" appearance="outline">
@@ -12,7 +13,7 @@
                 <input  matInput placeholder="Password" required [type]="hide? 'password': 'text'" formControlName="password">
                 <mat-icon (click)="hide=!hide" matSuffix> {{ hide? 'visibility_off' : 'visibility' }}</mat-icon>
               </mat-form-field>
-              <button type="submit" mat-raised-button color="primary">Sign IN</button>
+              <button type="submit" mat-raised-button color="primary">Sign In</button>
           </form>
     </mat-card-content>
 </mat-card>

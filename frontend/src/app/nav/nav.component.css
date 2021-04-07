@@ -4,11 +4,11 @@
 
 .sidenav {
   width: 150px;
-  background-color: slategrey;
+  background-color: rgb(231, 237, 243);
 }
 
 .sidenav a {
-  color: aliceblue;
+  color: rgb(47, 49, 51);
 }
 .search-nav {
   margin: auto;
@@ -20,8 +20,9 @@
   background: inherit;
 }
 .nav-toolbar{
-  background-color: rgb(162, 165, 167);
+  background-color: rgb(231, 237, 243);
   border-bottom: rgb(26, 96, 189) 4px solid;
+  text-align: center center;
 }
 .mat-toolbar.mat-primary {
   position: fixed;
@@ -31,4 +32,7 @@
 
 .mat-toolbar {
   height: 30px;
+}
+.active {
+  background-color: #98c9e0 !important;
 }

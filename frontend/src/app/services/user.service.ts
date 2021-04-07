@@ -4,9 +4,6 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +24,7 @@ export class UserService {
       headers: new HttpHeaders().append('Content-Type', 'application/json')
     })
   }
-  private myName;
+  public myName;
   login(body: any){
     this.http.post<{token: string, name: string}>(environment.apiBaseUrl+'/login', body, {
       observe:'body',
@@ -78,6 +75,8 @@ export class UserService {
 
   private uname = new Subject();
 
+
+
   getUserName():Observable<any> {
     return this.uname.asObservable();
   }
@@ -86,7 +85,7 @@ export class UserService {
   private isAuth = new Subject<boolean>();
 
   isAuthValid(){
-
+    console.log(this.isAuth.asObservable());
     return this.isAuth.asObservable();
   }
 

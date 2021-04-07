@@ -22,23 +22,23 @@ mongoose.connect(process.env.MONGO_DB_URL,
         console.log("err"+err)
 });
 
-var passport = require('passport');
-var session = require('express-session');
-app.use(session({
-        name: 'kb',
-        resave: false,
-        saveUninitialized: false,
-        secret: 'secret',
-        cookie: {
-            maxAge: 360000,
-            httpOnly: false,
-            secure: false
-        }
-    }
-));
-require('./passport-config');
-app.use(passport.initialize());
-app.use(passport.session());
+// var passport = require('passport');
+// var session = require('express-session');
+// app.use(session({
+//         name: 'kb',
+//         resave: false,
+//         saveUninitialized: false,
+//         secret: 'secret',
+//         cookie: {
+//             maxAge: 360000,
+//             httpOnly: false,
+//             secure: false
+//         }
+//     }
+// ));
+// require('./passport-config');
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 
 const server = http.createServer(app);
@@ -47,6 +47,7 @@ app.use(cors({
     origin:['http://localhost:4200', 'http://127.0.0.1:4200'],
     credentials: true
 }))
+
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 

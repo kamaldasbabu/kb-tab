@@ -66,7 +66,6 @@ var validateToken = (req, res, next)=> {
     })
 
 router.get('/username', validateToken, (req,res, next)=> {
-    
     return res.status(200).json(decodedToken.name);
 })
 

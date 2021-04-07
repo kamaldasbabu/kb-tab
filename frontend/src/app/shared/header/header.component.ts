@@ -33,16 +33,16 @@ export class HeaderComponent implements OnInit {
       data=> {
         this.name = data;
         console.log(this.name);
-        console.log("jjdkk")
+        console.log("On init test....");
       }
     )
     this.userService.getValue().subscribe(data => {
       this.val = data;
     })
-
-
+    
 
     this.userService.isAuthValid().subscribe(data=> {
+      console.log(data);
       this.isAuth = data;
     })
       
